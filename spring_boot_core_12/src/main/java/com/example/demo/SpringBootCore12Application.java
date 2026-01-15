@@ -16,26 +16,26 @@ public class SpringBootCore12Application {
 
 	public static void main(String[] args) {
 	
-		ConfigurableApplicationContext	ctx=SpringApplication.run(SpringBootCore12Application.class, args);
+		//ConfigurableApplicationContext	ctx=SpringApplication.run(SpringBootCore12Application.class, args);
 	
 	
 		
 		//ConfigurableApplicationContext	ctx=new SpringApplicationBuilder(SpringBootCore12Application.class).run(args);
 		
 
-//		ConfigurableApplicationContext	ctx=new SpringApplicationBuilder(PrimarySource.class)
-//				       .bannerMode(Mode.OFF)
-//				       .web(WebApplicationType.NONE)
-//				       .run(args);
+		ConfigurableApplicationContext	ctx=new SpringApplicationBuilder(PrimarySource.class)
+				       .bannerMode(Mode.OFF)
+				       .web(WebApplicationType.NONE)
+				       .run(args);
 
 
 		
 	InvoiceService service = ctx.getBean(InvoiceService.class);
 	
 	
-	//var invoice = ctx.getBean("invoiceTwo",Invoice.class);
+	var invoice = ctx.getBean("invoiceTwo",Invoice.class);
 
-	var invoice = ctx.getBean(Invoice.class);
+	//var invoice = ctx.getBean(Invoice.class);
 
 	 System.out.println(" expected "+invoice);
 

@@ -25,21 +25,27 @@ public class InvoiceRepository {
 		super();
 		this.invList = invList;
 	}
+
+	/*
+	 * public Object getInvList() { // TODO Auto-generated method stub return null;
+	 * }
+	 * 
+	 * public String getInvoice() { // TODO Auto-generated method stub return null;
+	 * }
+	 */
 	
 
 	// If more than one instance are available specify the one which you want with @Qulifier
-//	public InvoiceRepository(@Qualifier("invoice") Invoice invoice) {
-//		super();
-//		this.invoice = invoice;
-//	}
-//	
+	public InvoiceRepository(@Qualifier("invoice") Invoice invoice) {
+		super();
+		this.invoice = invoice;
+	}
 	
-	// If only one instance of Invoice is available use this approach
-//	public InvoiceRepository(Invoice invoice) {
-//		super();
-//		this.invoice = invoice;
-//	}
-//	
+	
+	/*
+	 * //If only one instance of Invoice is available use this approach public
+	 * InvoiceRepository(Invoice invoice) { super(); this.invoice = invoice; }
+	 */
 
 	
 	

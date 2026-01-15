@@ -1,13 +1,18 @@
 package com.example.demo;
 
+import java.time.LocalDate;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
 
 import com.example.demo.model.Invoice;
 
+
+
 @SpringBootApplication
-//@ComponentScan(basePackages = {"com.example.demo"})
+@ComponentScan(basePackages = {"com.example.demo"})
 public class PrimarySource {
 
 	
@@ -16,7 +21,7 @@ public class PrimarySource {
 	Invoice invoice() {
 		
 		return Invoice.builder().inoviceNumber(120).customerName("Ramesh").amount(2600).build();
-		
+	
 	}
 	
 	@Bean
