@@ -2,6 +2,9 @@ package com.example.demo.services;
 
 import java.util.List;
 
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Customer;
@@ -27,13 +30,21 @@ public class CustomerService {
 	}
 	
 
+	@Cacheable(value = "customerById",key = "#id")
+	public Customer findById(Long id) {
+		
+		return this.repo.findById(id)
+				.orElseThrow(()-> new RuntimeException("Element with Given Id Not Found"));
+	}
 	public List<Customer> findAll() {
 
 		return this.repo.findAll();
 		
 	}
 	
-	public int  updateEmail(String revisedMail,int id){
+	@CachePut(value = "customerById",key = "#id")
+
+	public int  updateEmail(String revisedMail,long id){
 		
 		return this.repo.updateEmailById(revisedMail, id);
 	}
@@ -51,4 +62,29 @@ public class CustomerService {
 	}
 	
 
+	@CacheEvict(value = "customerById",key = "#id")
+	public void removeCustomer(Long id) {
+		
+		if(!this.repo.existsById(id)) {
+			throw new RuntimeException("Element With given Id Not found");
+		}
+		this.repo.deleteById(id);
+
+	}
+
+
+	public Customer update(Customer entity) {
+		return this.save(entity);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+server:
+   port: 4040
+spring:
+  application:
+    name: login-service
+  datasource:
+    url: jdbc:h2:file:~/trainDb
+    username: sa
+    password: 
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        generatestatistics: true
+        formatsql: true
+  h2:
+    console:
+      enabled: true
+logging:
+  level:
+    org:
+      springframework:
+        jdbc: debug
+        security: trace
+        data:
+          jpa: debug
+      hibernate:
+        sql: debug
+        stat: debug
+        orm:
+         jdbc:
+            bind: trace
+
+jwt:
+ secret: 840OUHb4vZMQLfDTg0PPpn6vdIbHItcAwfAJw30nE/Y=
+ expiration:
+   ms: 10

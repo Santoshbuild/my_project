@@ -1,0 +1,58 @@
+Task -1
+
+public class Student {
+
+	@Id
+	@Column(name="roll_number")
+	private int rollNumber;
+	
+	@Column(name="student_name")
+	private String studentName;
+	
+	@Column(name="email")
+	private String email;
+	
+	@Column(name="mark")
+	private BigDecimal mark;
+	
+}
+public class Teacher{
+	
+	@Id
+	@Column(name="teacher_id")
+	Integer teacherId;
+	
+	@Column(name="teacher_name")
+	private String teacherName;
+	
+	@Column(name="department")
+	private String department;
+	
+	@OneToMany(targetEntity = Student.class,fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@JoinColumn(name = "teacher_ref", referencedColumnName = "teacher_id")
+	Set<Student> students;
+	
+	
+}
+
+For the Entity given above create a JPA Repository Based CRUD Application
+Add the Following method to the repository and provide endpoints to access them
+Provide a method to find the students of a given department
+Find the average mark of students a given department
+Add the Open API Documentation 
+ADD the Actuator Info endpoint
+Secure the controller endpoints with in-memory Database
+Optionally  use profiles to configure
+
+
+Ratna sagar
+
+Task -2
+
+One to One Bidirectional Task
+
+Create a Entity Class BankAccount and another entity class Nominee 
+
+Create the appropriate mapping and run the code
+
+suravi kumari  and satosh ojha

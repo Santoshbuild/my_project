@@ -1,6 +1,11 @@
+server:
+   port: 8040
+springdoc:
+  api-docs:
+    version: OPENAPI_3_0
 spring:
   application:
-    name: data_jpa_dsl_multipart
+    name: data-jpa-dsl-multipart
   datasource:
     url: jdbc:h2:file:~/trainDb   
     username: sa
@@ -14,12 +19,27 @@ spring:
     console:
       enabled: true
       path: /h2-console
-
-server:
-  port: 5050
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: "10MB"
+      max-request-size: "10MB"
+        
+        
+#server:
+#  port: 5050
 logging:
   level:
     org:
       h2: trace
       springframework:
         jdbc: trace
+        jpa: trace
+        cache: trace
+        
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        

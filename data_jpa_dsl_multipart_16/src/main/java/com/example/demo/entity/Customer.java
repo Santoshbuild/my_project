@@ -1,6 +1,5 @@
 package com.example.demo.entity;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,7 +24,6 @@ public class Customer {
 
 	
 	@Id
-	@GeneratedValue(strategy =  GenerationType.AUTO)
 	@Column(name = "customer_id")
 	private long customerId;
 	
