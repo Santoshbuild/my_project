@@ -22,10 +22,9 @@ public class AppConfig {
 		
 		return builder.build();
 	}
-}
 
-// Create a Controller 
-// Inject the webclient
-// invoke the jpa-hotel-service  rest endpoint
-// register this as a service with docker compose
-// test with postman
+
+
+
+
+}
